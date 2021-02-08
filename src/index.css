@@ -1,13 +1,53 @@
+@import 'bulma/css/bulma.css';
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    background-color: violet;
+    
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.textBox {  
+  width: 130px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin: auto;
+
 }
+
+.centered {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+h1 {
+    color: yellow;
+    font-size: 40px;
+    font-family: cursive;
+}
+
+.card {
+    background-color: green;
+   /* max-height: 400px; */
+}
+.box {
+    background-color: rgba(233,23,56,1);
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+/*
+.card .card-image .image img {
+    height: 200px;
+} */
