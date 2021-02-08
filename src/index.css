@@ -1,9 +1,11 @@
+
 @import 'bulma/css/bulma.css';
 
 body {
     background-color: violet;
-    
-}
+    height: 100vh;
+  }
+
 
 .textBox {  
   width: 130px;

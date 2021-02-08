@@ -1,14 +1,38 @@
 import React, {useState} from 'react'
-import Card from './card.js'
 import SwipeCard from './tinderCard.js'
 import './index.css'
-import TinderCard from 'react-tinder-card'
+import Lander from './landing.js'
+import End from './end.js'
 
 
 
-// initial values
-const credits = 0
-const olkkariIntegrity = 0
+/* initial values 
+opt1 = swipe right
+opt2 = swipe left
+
+
+*/
+
+//game settings in this file for simplicity
+// score atm =  integ + credits
+// fixaa scoret eri vaikeuksilla
+const gameSettings = {
+    credits:{
+       easy:100,
+       medium: 50,
+       hard: 25
+      },
+    olkkariIntegrity:{
+       easy: -4,
+       medium: -6,
+       hard: -10
+      },
+    goodScore: -2,
+    mediumScore: -9,
+
+  }
+
+
 
 
 const db = [
@@ -52,78 +76,81 @@ const db = [
 
 const App = () => {
 
-  const [ credit, setCredit ] = useState(credits)
-  const [oIntegrity, setOIntegrity] = useState(olkkariIntegrity)
-  const [cardInd, setCardInd] = useState(db.length-1)
-  const [card, setCard] = useState(db[cardInd])
+  const [ credit, setCredit ] = useState(gameSettings.credits)
+  const [oIntegrity, setOIntegrity] = useState(gameSettings.olkkariIntegrity)
+  const [lander, setLander] = useState(true)
+  const [isOver, setIsOver] = useState(false)
 
 
-  const handleSwipe = (event) => {
-    setCardInd(old => old-1)
-    setCard(db[cardInd])
+ const handleClickEasy = () => {
+   setCredit(gameSettings.credits.easy)
+   setOIntegrity(gameSettings.olkkariIntegrity.easy)
+   setLander(false)
+   
+ } 
 
-    setCredit(old => old+10)
-    setOIntegrity(old => old+1)
+ const handleClickMedium = () => {
+   setCredit(gameSettings.credits.medium)
+   setOIntegrity(gameSettings.olkkariIntegrity.medium)
+   setLander(false)
+} 
 
+const handleClickHard = () => {
+  setCredit(gameSettings.credits.hard)
+  setOIntegrity(gameSettings.olkkariIntegrity.hard)
+  setLander(false)
+} 
 
-  }
-
-  const onSwipe = (direction) => {
-    console.log(credit)
-    console.log(cardInd)
-    if(direction === 'left') {
-     // console.log('vasurisisisi')
-
-    }else if(direction === 'right'){
-     // console.log('oikekke')
-    }
-    
-  }
-  
-
-
-
-
- const changeCredit = (card) => {
-    console.log('change credit '+ card)
-    setCredit(old => old + card.opt1.cost)  
+//also takes care of tracking the index of card, i.e. notifying when the last card is played
+ const changeCredit = (opt, index) => {
+    console.log(index)
+    setCredit(old => old + opt.cost)
+    if(index===0) setIsOver(true)
  }
 
- const changeOIntegrity = (card) => {
-   console.log('change integ ')
-   setOIntegrity(oIntegrity + card.opt1.integ)
+ const changeOIntegrity = (opt) => {
+   setOIntegrity(old => old + opt.integ)
  }
 
 
   return(
+
     <div>
-    <div className="centered"><h1>Villen suuri Olkkariremppa<br/>Auta villeä valitsemaan oikein</h1></div>
-    <div className="p-4">
-        <div className="centered">
-          <span className="textBox">Massi: {credit}</span><span className="textBox"> Eheys: {oIntegrity}</span>  
-        </div>
-        </div>
+      <div className="centered"><h1>Villen suuri Olkkari remppa peli</h1></div>
 
- 
+        {lander ? <Lander easyOnClick={handleClickEasy} mediumOnClick={handleClickMedium} hardOnClick={handleClickHard}/>
+        : credit < 0 ? null  
+          :  
+            <>
+              <div className="p-4">
+                  <div className="centered">
+                    <span className="textBox">Massi: {credit}</span><span className="textBox"> Eheys: {oIntegrity}</span>  
+                  </div>
+              </div>
+
+          
 
 
 
-<div className="card">     
-        {db.map((q, i) => (
+              <div className="card">     
+                    {db.map((q, i) => (
 
-            <SwipeCard key ={q.question}
-             card={q}
-             handleSwipe={handleSwipe}
-             //onSwipe={onSwipe}
-             credit={credit}
-             changeCredit={changeCredit}
-             changeOIntegrity={changeOIntegrity}         
-             >
-            </SwipeCard>
-        ))}
+                        <SwipeCard key ={q.question}
+                        card={q}
+                        index={i}
+                        changeCredit={changeCredit}
+                        changeOIntegrity={changeOIntegrity}         
+                        >
+                        </SwipeCard>
+                    ))}
+              </div>
+            </>
+            }
+
+          {(isOver || credit < 0) ? <End gameSettings={gameSettings} credits={credit} integrity={oIntegrity}/> : null}
+
     </div>
-    
-    </div>  
+            
     )
 }
 

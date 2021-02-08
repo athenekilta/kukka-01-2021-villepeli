@@ -8,8 +8,7 @@ const Card = ({
                 question,
                 opt1,
                 opt2,
-                handleClickR,
-                handleClickL}) => {
+                }) => {
   return (
     <div className="columns is-centered">
         <div className="column is-half">
@@ -34,8 +33,9 @@ const Card = ({
             </figure>
         </div>
         <footer className="card-footer-item">
-                <i className="arrow left"></i><div className="box mx-5">{opt1.desc} </div>
-                <div className= "box mx-5">{opt2.desc}</div> <i className="arrow right"></i>
+                <i className="arrow left"></i><div className= "box mx-5">{opt2.desc}{opt2.cost}{opt2.integ}</div> 
+                <div className="box mx-5">{opt1.desc}{opt1.cost}{opt1.integ}</div><i className="arrow right"></i>
+                
     </footer>
 </div>
     </div>

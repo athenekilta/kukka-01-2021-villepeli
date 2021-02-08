@@ -7,18 +7,21 @@ import Card from './card.js'
  
   
 
-const SwipeCard = ({card, changeOIntegrity, changeCredit})=>{ //onSwipe}) => {
+const SwipeCard = ({card, changeOIntegrity, index, changeCredit})=>{
     
-    const cost = card.opt1.cost
-    const [dir, setDir] = useState('')
-
 
     const onSwipe = (direction) => {
     }
 
     const onCardLeftScreen = (direction) => {
-        if(direction === 'right') changeCredit(card)
-        else changeOIntegrity(card)
+        if(direction === 'right'){
+             changeCredit(card.opt1, index)
+             changeOIntegrity(card.opt1)
+
+        }else{
+             changeCredit(card.opt2, index)
+             changeOIntegrity(card.opt2)
+            }
 
     }
 
