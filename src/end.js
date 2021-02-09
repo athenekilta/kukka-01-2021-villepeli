@@ -2,7 +2,8 @@ import React from 'react'
 
 const End = ({gameSettings, credits, integrity}) => {
 
-    const goodScore = 'Wautsi, mahtisuoritus! Olit tosi säästävä, mutta tiesit myös milloin pitää vähän törsätä. Olkkari elää kunnian päiviänsä.'
+    const goodScore= <div className="blinking"> 'Wautsi, mahtisuoritus! Olit tosi säästävä, mutta tiesit myös milloin pitää vähän törsätä. Olkkari elää kunnian päiviänsä.'</div>
+    
     const mediumScore = 'Olkkari on eheä, eikä budjettikaan ylittyt liikoja. Hyvin tehty.'
     const badScore = 'Nyt ei remppatavoitteet oikeen toteutunu. Sait yhden tähden. Yritäppä uudestaan.'
     const outOfFunds = 'Muuten hyvä, mutta budjetin puolesta meni pahasti pakkaselle, eikä Villellä ole varaa jatkaa remppaa. Yritäpä uudestaan.'
@@ -17,14 +18,22 @@ const End = ({gameSettings, credits, integrity}) => {
 
 
     return(
-        <div>
+
+        <div className="centered">
+
+        {score > gameSettings.goodScore ? 
+                <div className="pyro">
+                    <div className="before"></div>
+                    <div className="after"></div>
+                </div>
+            : null
+        }
             <h1>Remppa valmis</h1>
              Pelasit pelin ja rahaa sinulla on <div className="has-text-weight-bold">{credits} kolikkoa</div> ja
              Olkkarin eheys on tällä hetkellä <div className="has-text-weight-bold">{integrity}</div>
              {credits < 0 ? outOfFunds : scoreText}
 
-
-        </div>
+</div>
         )
 }
 

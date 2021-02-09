@@ -27,7 +27,7 @@ const gameSettings = {
        medium: -6,
        hard: -10
       },
-    goodScore: -2,
+    goodScore: 1,
     mediumScore: -9,
 
   }
@@ -54,7 +54,7 @@ const db = [
     cost: -2,
     integ: 1,},
   opt2:{ 
-    desc: "ei",
+    desc: "Ei",
     cost: -1,
     integ: 0}
 },
@@ -65,7 +65,7 @@ const db = [
     cost: -3,
     integ: 2,},
   opt2:{ 
-    desc: "ei",
+    desc: "Ei",
     cost: -1,
     integ: -3}
 },

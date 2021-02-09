@@ -33,8 +33,8 @@ const Card = ({
             </figure>
         </div>
         <footer className="card-footer-item">
-                <i className="arrow left"></i><div className= "box mx-5">{opt2.desc}{opt2.cost}{opt2.integ}</div> 
-                <div className="box mx-5">{opt1.desc}{opt1.cost}{opt1.integ}</div><i className="arrow right"></i>
+                <i className="arrow left"></i><div className= "box mx-5">{opt2.desc} <br/>Hinta:  {Math.abs(opt2.cost)} Eheys: {opt2.integ}</div> 
+                <div className="box mx-5">{opt1.desc}<br/> Hinta: {Math.abs(opt1.cost)} Eheys: {opt1.integ}</div><i className="arrow right"></i>
                 
     </footer>
 </div>

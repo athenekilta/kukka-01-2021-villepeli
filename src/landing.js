@@ -3,17 +3,28 @@ import React from 'react'
 const Lander = ({easyOnClick, mediumOnClick, hardOnClick}) => {
     return(
         <div>
+            <div className="has-text-centered">
+                Oletko valmis pelaamaan? Valitse vain vaikeustaso ja lähde remppaamaan! <br/>
+                Pelissä on tarkoitus auttaa Villeä Olkkarin rempassa. Voit valita, mitä Olkkarille tulee pyyhkäisemällä haluamasi valinnan suuntaan.
+            </div>
             <br/>
-            Oletko valmis pelaamaan? Valitse vain vaikeustaso ja lähde remppaamaan!
-            <br/>
-            <button onClick={easyOnClick}>Helppo, paljon massia ja kiltalaiset tyytyy vähään</button>
-            <br/>
-            <button onClick={mediumOnClick}>Semi vaikee</button>
-            <br/>
-            <button onClick={hardOnClick}>Himo vaikee, pandemia polki killan massit ja vastaavasti Olkkarille, joskus pandemian ollessa ohi, palaavat kiltalaiset kasvattavat odotuksensa taivaisiin asti. </button>
-
-
+                <div className="buttons has-addons is-centered">
+                    <button className="button is-success is-large" onClick={easyOnClick}>Helppo</button>
+                </div>
+                <div className="buttons has-addons is-centered">
+                    <button className="button is-warning is-large" onClick={mediumOnClick}>Semi vaikee</button>
+                </div>
+                <div className="buttons has-addons is-centered">
+                    <button className="button is-danger is-large" onClick={hardOnClick}>
+                            <div className="is-size-7">
+                                Himo vaikee. Pandemia polki killan rahavarat pohjamutii<br/>
+                                ja vastaavasti joskus pandemian ollessa ohi Olkkarille,<br/> 
+                                palaavat kiltalaiset odottavat Olkkarin olevan aktuaalinen pala taivasta.
+                            </div>
+                    </button>
+                </div>
         </div>
+
     )
 }
 
