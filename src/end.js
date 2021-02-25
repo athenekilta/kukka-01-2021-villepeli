@@ -1,6 +1,6 @@
 import React from 'react'
 
-const End = ({gameSettings, credits, integrity}) => {
+const End = ({gameSettings, credits, integrity, lost}) => {
 
     const goodScore= <div className="blinking"> 'Wautsi, mahtisuoritus! Olit tosi säästävä, mutta tiesit myös milloin pitää vähän törsätä. Olkkari elää kunnian päiviänsä.'</div>
     
@@ -17,23 +17,34 @@ const End = ({gameSettings, credits, integrity}) => {
     
 
 
+    const youLost = (
+            <>
+                <h1>Nyt valitsit hölmösti {lost} ei ollut oikea päätös <br/> Yritäpä uudestaan</h1>
+            </>
+        )
+    
+
     return(
 
         <div className="centered">
 
-        {score > gameSettings.goodScore ? 
-                <div className="pyro">
-                    <div className="before"></div>
-                    <div className="after"></div>
-                </div>
-            : null
-        }
-            <h1>Remppa valmis</h1>
-             Pelasit pelin ja rahaa sinulla on <div className="has-text-weight-bold">{credits} kolikkoa</div> ja
-             Olkkarin eheys on tällä hetkellä <div className="has-text-weight-bold">{integrity}</div>
-             {credits < 0 ? outOfFunds : scoreText}
-
-</div>
+            {score > gameSettings.goodScore ? 
+                    <div className="pyro">
+                        <div className="before"></div>
+                        <div className="after"></div>
+                    </div>
+                : null
+            }
+            {integrity < -50 ? youLost
+                :
+                    <>
+                    <h1>Remppa valmis</h1>
+                    Pelasit pelin ja rahaa sinulla on <div className="has-text-weight-bold">{credits} kolikkoa</div> ja
+                    Olkkarin eheys on tällä hetkellä <div className="has-text-weight-bold">{integrity}</div>
+                    {credits < 0 ? outOfFunds : scoreText}
+                    </>
+            }
+        </div>
         )
 }
 

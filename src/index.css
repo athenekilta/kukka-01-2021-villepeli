@@ -62,7 +62,9 @@ h1 {
     }
   }
 
- 
+ /*
+ fireworks from https://jsfiddle.net/elin/7m3bL/ by Eddie Lin
+ */
   
   .pyro > .before, .pyro > .after {
     position: absolute;

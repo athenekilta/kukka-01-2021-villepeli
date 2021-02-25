@@ -18,13 +18,13 @@ opt2 = swipe left
 // fixaa scoret eri vaikeuksilla
 const gameSettings = {
     credits:{
-       easy:100,
-       medium: 50,
-       hard: 25
+       easy:30,
+       medium: 20,
+       hard: 15
       },
     olkkariIntegrity:{
-       easy: -4,
-       medium: -6,
+       easy: -3,
+       medium: -5,
        hard: -10
       },
     goodScore: 1,
@@ -37,6 +37,17 @@ const gameSettings = {
 
 const db = [
   {
+    question: 'Viimeisenä rempattavana kohteena on Olkkarin oma keittiöalue. Phabupöytä on vanhanaikainen ja vie tilaa. Poistetaanko suoraan?',
+  opt1:{ 
+    desc:"Pöytä ongelmajätteeseen",
+    cost: 0,
+    integ: 5,},
+  opt2:{ 
+    desc: "Ei, pidetään ihana pöytä",
+    cost: 0,
+    integ: -100}
+  },
+  {
   question: 'Mitä maalia?',
   opt1:{ 
     desc:"Ihana vihreä",
@@ -46,6 +57,17 @@ const db = [
     desc: "Oksen vihree",
     cost: -1,
     integ: -4}
+},
+{
+  question: 'Ville haluaa kasvattaa kiltahenkeä ja uskoo symbolisten voima-artefaktien kohottavaan vaikutukseen. Millainen patsas sopsisi parhaiten kosketeltavaksi Olkkarille?',
+  opt1:{ 
+    desc:"Parskalaalipatsas",
+    cost: -3,
+    integ: -100,},
+  opt2:{ 
+    desc: "Lihatarrapatsas",
+    cost: -5,
+    integ: 10}
 },
 {
   question: 'Laitetaanko premium nauloja?',
@@ -80,6 +102,8 @@ const App = () => {
   const [oIntegrity, setOIntegrity] = useState(gameSettings.olkkariIntegrity)
   const [lander, setLander] = useState(true)
   const [isOver, setIsOver] = useState(false)
+  const [lost, setLost] = useState('')
+
 
 
  const handleClickEasy = () => {
@@ -105,11 +129,18 @@ const handleClickHard = () => {
  const changeCredit = (opt, index) => {
     console.log(index)
     setCredit(old => old + opt.cost)
-    if(index===0) setIsOver(true)
+    if(index===0){ 
+      setIsOver(true)
+    }
  }
 
  const changeOIntegrity = (opt) => {
    setOIntegrity(old => old + opt.integ)
+   if(opt.integ < -50){
+     setIsOver(true)
+     setLost(opt.desc)
+
+   } 
  }
 
 
@@ -120,8 +151,8 @@ const handleClickHard = () => {
 
         {lander ? <Lander easyOnClick={handleClickEasy} mediumOnClick={handleClickMedium} hardOnClick={handleClickHard}/>
         : credit < 0 ? null  
-          :  
-            <>
+          :
+          <div>
               <div className="p-4">
                   <div className="centered">
                     <span className="textBox">Massi: {credit}</span><span className="textBox"> Eheys: {oIntegrity}</span>  
@@ -131,27 +162,28 @@ const handleClickHard = () => {
           
 
 
-
+              {isOver ? <End gameSettings={gameSettings} credits={credit} integrity={oIntegrity} lost={lost}/>
+              :
               <div className="card">     
-                    {db.map((q, i) => (
+                {db.map((q, i) => (
 
-                        <SwipeCard key ={q.question}
-                        card={q}
-                        index={i}
-                        changeCredit={changeCredit}
-                        changeOIntegrity={changeOIntegrity}         
-                        >
-                        </SwipeCard>
-                    ))}
-              </div>
-            </>
+                    <SwipeCard key ={q.question}
+                    card={q}
+                    index={i}
+                    changeCredit={changeCredit}
+                    changeOIntegrity={changeOIntegrity}         
+                    >
+                    </SwipeCard>
+                ))}
+             </div>
+        
             }
 
-          {(isOver || credit < 0) ? <End gameSettings={gameSettings} credits={credit} integrity={oIntegrity}/> : null}
-
-    </div>
-            
-    )
+          </div>
+    
+}
+</div>
+)
 }
 
 
