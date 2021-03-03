@@ -6,7 +6,7 @@ const End = ({gameSettings, credits, integrity, lost}) => {
     
     const mediumScore = 'Olkkari on eheä, eikä budjettikaan ylittyt liikoja. Hyvin tehty.'
     const badScore = 'Nyt ei remppatavoitteet oikeen toteutunu. Sait yhden tähden. Yritäppä uudestaan.'
-    const outOfFunds = 'Muuten hyvä, mutta budjetin puolesta meni pahasti pakkaselle, eikä Villellä ole varaa jatkaa remppaa. Yritäpä uudestaan.'
+    const outOfFunds = 'Budjetin puolesta meni pahasti pakkaselle, eikä Villellä ole varaa jatkaa remppaa. Lataa sivu uudelleen ja yritä, josko onnais nyt.'
     const badInteg = 'Rahaa kyllä säästyi, mutta Olkkarihan on kuin yksi kaatopaikka. Yritäpä uudestaan.'
 
 
@@ -22,6 +22,15 @@ const End = ({gameSettings, credits, integrity, lost}) => {
                 <h1>Nyt valitsit hölmösti {lost} ei ollut oikea päätös <br/> Yritäpä uudestaan</h1>
             </>
         )
+
+    const winning = (
+        <>
+            <h1>Remppa valmis</h1>
+            Pelasit pelin ja rahaa sinulla on <div className="has-text-weight-bold">{credits} kolikkoa</div> ja
+            Olkkarin eheys on tällä hetkellä <div className="has-text-weight-bold">{integrity}</div>
+            {scoreText}
+        </>
+    )    
     
 
     return(
@@ -37,13 +46,11 @@ const End = ({gameSettings, credits, integrity, lost}) => {
             }
             {integrity < -50 ? youLost
                 :
-                    <>
-                    <h1>Remppa valmis</h1>
-                    Pelasit pelin ja rahaa sinulla on <div className="has-text-weight-bold">{credits} kolikkoa</div> ja
-                    Olkkarin eheys on tällä hetkellä <div className="has-text-weight-bold">{integrity}</div>
-                    {credits < 0 ? outOfFunds : scoreText}
-                    </>
+                <>
+                    { credits < 0 ? outOfFunds : winning }
+                </>
             }
+
         </div>
         )
 }

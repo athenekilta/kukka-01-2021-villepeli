@@ -26,7 +26,8 @@ const SwipeCard = ({card, changeOIntegrity, index, changeCredit})=>{
     }
 
 
-   return(   
+   return(
+          
     <TinderCard className="card-content is-overlay" onSwipe={onSwipe}
         onCardLeftScreen={onCardLeftScreen}
         preventSwipe={[ 'up', 'down']}

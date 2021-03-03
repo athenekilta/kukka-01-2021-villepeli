@@ -28,14 +28,14 @@ const Card = ({
             </div>
         </div>
         <div className="card-image">
+            
             <figure className="image is-3by1">
             <img className="has-ratio" width="640" height="36" src={nails} alt="Placeholder image"/>
-            </figure>
+            </figure> 
         </div>
         <footer className="card-footer-item">
-                <i className="arrow left"></i><div className= "box mx-5">{opt2.desc} <br/>Hinta:  {Math.abs(opt2.cost)} Eheys: {opt2.integ}</div> 
-                <div className="box mx-5">{opt1.desc}<br/> Hinta: {Math.abs(opt1.cost)} Eheys: {opt1.integ}</div><i className="arrow right"></i>
-                
+                <i className="arrow left"></i><div className= "box mx-5"><b>Hinta:</b><br/>{Math.abs(opt2.cost)}<br/><br/>{opt2.desc}</div> 
+                <div className="box mx-5"><b>Hinta:</b><br/>{Math.abs(opt1.cost)}<br/><br/>{opt1.desc}</div><i className="arrow right"></i>
     </footer>
 </div>
     </div>
