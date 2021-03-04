@@ -33,9 +33,11 @@ const SwipeCard = ({card, changeOIntegrity, index, changeCredit})=>{
         preventSwipe={[ 'up', 'down']}
         >
         
-        <Card  question={card.question}
-                            opt1={card.opt1}
-                            opt2={card.opt2}
+        <Card  
+            question={card.question}
+            opt1={card.opt1}
+            opt2={card.opt2}
+            picPath={card.picPath}
                             
                              />
 

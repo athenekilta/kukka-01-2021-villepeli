@@ -6,6 +6,7 @@ import End from './end.js'
 
 
 
+
 /* initial values 
 opt1 = swipe right
 opt2 = swipe left
@@ -38,7 +39,8 @@ const gameSettings = {
 const db = [
   {
     question: 'Viimeisenä rempattavana kohteena on Olkkarin oma keittiöalue. Phabupöytä on vanhanaikainen ja vie tilaa. Poistetaanko suoraan?',
-  opt1:{ 
+    picPath:"",
+    opt1:{ 
     desc:"Pöytä ongelma-jätteeseen",
     cost: 0,
     integ: 5,},
@@ -48,7 +50,8 @@ const db = [
     integ: -100}
   },
   {
-    question: 'Villeä ärsyttää, kun oma kahvikuppi pitäisi aina muistaa tiskata käytön jälkeen. Usein Villen kuppi jääkin lojumaan Olkkarilla sekalaisiin nurkkauksiin. Pitäisikö Olkkarille hankkia tiskikone?',
+    question: 'Ärsyttää, kun oma kahvikuppi pitäisi aina muistaa tiskata käytön jälkeen. Usein jätänkin kuppini lojumaan Olkkarilla sekalaisiin nurkkauksiin. Pitäisikö Olkkarille hankkia tiskikone?',
+    picPath:"",
     opt1:{ 
       desc:"Kyllä, elämä on liian lyhyt tiskeihin",
       cost: -5,
@@ -59,7 +62,8 @@ const db = [
       integ: 0}
   },
   {
-    question: 'Isopaha IT-yritys tarjotaa Villelle sponssidiiliä remonttiin. Myyttekö Olkkarin sielun muutamasta pennosesta?',
+    question: 'Vetelin vähän naruja ja voitaisiin saada sponssidiili [insert company]:ltä remonttiin. Myydäänkö Olkkarin sielun muutamasta pennosesta?',
+    picPath:"",
     opt1:{ 
       desc:"Kyllä, onhan raha tärkeää.",
       cost: 4,
@@ -71,6 +75,7 @@ const db = [
   },
   {
   question: 'Olkkarin rupiset seinät tarvitsevat uutta väriä. Millaisen maalin valitsette?',
+  picPath: "",
   opt1:{ 
     desc:"Ihana, puistoisan vihreä",
     cost: -2,
@@ -81,7 +86,8 @@ const db = [
     integ: -4}
 },
 {
-  question: 'Ville haluaa kasvattaa kiltahenkeä ja uskoo symbolisten voima-artefaktien kohottavaan vaikutukseen. Millainen patsas sopsisi parhaiten kosketeltavaksi Olkkarille?',
+  question: 'Kiltahenkeä tulee kasvattaa, ja se onnistuu parhaiten symbolisten voima-artefaktien avulla. Millainen patsas sopsisi parhaiten kosketeltavaksi Olkkarille?',
+  picPath: "meat",
   opt1:{ 
     desc:"Parskalaali-patsas",
     cost: -3,
@@ -93,6 +99,7 @@ const db = [
 },
 {
   question: 'Sohvanurkkaus on vähän rahvaan oloinen, ja lattia tuo lähinnä mieleen ikean. Laitetaanko kunnon pähkinäpuiset lattialankut?',
+  picPath:"",
   opt1:{ 
     desc:"Kyllä, tyyli on tärkeää",
     cost: -5,
@@ -104,6 +111,7 @@ const db = [
 },
 {
   question: 'Athenelaiset ehtivät jo kyllästyä biljardiin. Pitäisikö Olkkarille viimein hankkia ilmakiekkopöytä?',
+  picPath:"",
   opt1:{ 
     desc:"Kyllä",
     cost: -5,
@@ -115,6 +123,7 @@ const db = [
 },
 {
   question: 'Ankea valaistus tulee uusia. Mikä on valaistusvalintanne?',
+  picPath: "",
   opt1:{ 
     desc:"Discovalot",
     cost: -3,
@@ -125,7 +134,8 @@ const db = [
     integ: -3}
 },
 {
-  question: 'Ville pohtii Athenelaisten syvimpiä haaveita. Tulisiko Olkkarille olla moottorisaha?',
+  question: 'Pitäisiköhän hankkia jokin Athenelaisten syvimpiä haluja tyydyttävä esine. Tulisiko Olkkarille olla moottorisaha?',
+  picPath: "",
   opt1:{ 
     desc:"Ei",
     cost: 0,
@@ -136,9 +146,10 @@ const db = [
     integ: 5}
 },
 {
-  question: 'Ville tarvitsee nauloja - valitsetteko kalliita vai halpoja?',
+  question: 'Moikka! Kiva että oot mukana auttamassa. Nyt tarvittaisiin nauloja. Otetaanko kalliita vai halpoja?',
+  picPath: 'nails',
   opt1:{ 
-    desc:"Halpoja",
+    desc:"Halpoja, parempi säästää",
     cost: -1,
     integ: 0,},
   opt2:{ 

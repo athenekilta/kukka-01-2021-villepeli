@@ -26,8 +26,8 @@ h1 {
 }
 
 .card {
-    background-color: blue;
-    min-height: 650px; 
+  background-color: #738f77;
+  min-height: 650px; 
 
 }
 
@@ -58,7 +58,7 @@ h1 {
  
   .card {
    /* max-height: 400px; */
-   background-color: green;
+   background-color: #738f77;
   /* min-height: 600px; 
    min-width: 600px; */
 }
@@ -76,6 +76,12 @@ h1 {
   color: yellow;
   font-size: 40px;
   font-family: cursive;
+}
+
+.box {
+  background-color: red;
+  height: 200px;
+  width: 450px;
 }
 
 }

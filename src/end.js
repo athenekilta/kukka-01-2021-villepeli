@@ -6,7 +6,7 @@ const End = ({gameSettings, credits, integrity, lost}) => {
     
     const mediumScore = 'Olkkari on eheä, eikä budjettikaan ylittyt liikoja. Hyvin tehty.'
     const badScore = 'Nyt ei remppatavoitteet oikeen toteutunu. Sait yhden tähden. Yritäppä uudestaan.'
-    const outOfFunds = 'Budjetin puolesta meni pahasti pakkaselle, eikä Villellä ole varaa jatkaa remppaa. Lataa sivu uudelleen ja yritä, josko onnais nyt.'
+    const outOfFunds = 'Budjetin puolesta meni pahasti pakkaselle, nyt kilta on konkurssissa. Lataa sivu uudelleen ja yritä, josko osaisit paremmin.'
     const badInteg = 'Rahaa kyllä säästyi, mutta Olkkarihan on kuin yksi kaatopaikka. Yritäpä uudestaan.'
 
 
@@ -37,7 +37,7 @@ const End = ({gameSettings, credits, integrity, lost}) => {
 
         <div className="centered">
 
-            {score > gameSettings.goodScore ? 
+            {score > gameSettings.goodScore && credits >= 0 ? 
                     <div className="pyro">
                         <div className="before"></div>
                         <div className="after"></div>
