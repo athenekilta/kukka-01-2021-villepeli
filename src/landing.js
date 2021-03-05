@@ -4,6 +4,9 @@ const Lander = ({easyOnClick, mediumOnClick, hardOnClick}) => {
     return(
         <div>
             <div className="has-text-centered">
+                <br/>
+                Vaikka Ville onkin yhdistyslakiasiantuntija ja herrasmies, ei hänkään yksin kaikkeen pysty
+                 <br/>
                  <br/>
                 Pelissä on tarkoitus auttaa Villeä Olkkarin rempassa. Voit valita, mitä Olkkarille tulee pyyhkäisemällä <br/> haluamasi valinnan suuntaan.
                 Pelissä on tarkoituksena valita parhaat vaihtoehdot Olkkarille, niin rahan kuin eheydenkin kannalta.<br/> Kun peli on pelattu, tulokseesi vaikuttavat jäljellä oleva raha ja Olkkarin lopullinen eheys.

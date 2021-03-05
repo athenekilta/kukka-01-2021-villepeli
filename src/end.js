@@ -1,6 +1,6 @@
 import React from 'react'
 
-const End = ({gameSettings, credits, integrity, lost}) => {
+const End = ({gameSettings, credits, integrity, lost, gameState}) => {
 
     const goodScore= <div className="blinking"> 'Wautsi, mahtisuoritus! Olit tosi säästävä, mutta tiesit myös milloin pitää vähän törsätä. Olkkari elää kunnian päiviänsä.'</div>
     
@@ -10,47 +10,167 @@ const End = ({gameSettings, credits, integrity, lost}) => {
     const badInteg = 'Rahaa kyllä säästyi, mutta Olkkarihan on kuin yksi kaatopaikka. Yritäpä uudestaan.'
 
 
-    const score = credits+integrity
+    const score = 2 * integrity + credits
 
-    const scoreText = score > gameSettings.goodScore ? goodScore
-        : score > gameSettings.mediumScore ? mediumScore :  badScore
     
 
+    const realScore = ()  => {
+        if(gameState === 'easy') {
+            if(score >= 90) { 
+                return(
+                    <>
+                    <div className="pyro">
+                        <div className="before"></div>
+                        <div className="after"></div>
+                    </div>
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star checked"></span>
+                    </>
+            )}
+            else if(score >= 70) { return(
+                <>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star"></span>
+                </>
+            )}
+            else if(score >= 50){
+                <>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star"></span>
+                <span className="fa fa-star"></span>
+                </>
+            }
+            else {
+                <>
+                Pisteesi eivät riittäneet edes yhteen tähteen. Kokeile uudestaan!
+                <span className="fa fa-star"></span>
+                <span className="fa fa-star"></span>
+                <span className="fa fa-star"></span>
+                </>
+            }
+        }
+        else if(gameState === 'medium') {
+            if(score >= 60) {   
+                return(
+                    <>
+                    <div className="pyro">
+                        <div className="before"></div>
+                        <div className="after"></div>
+                    </div>
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star checked"></span>
+                    </>
+            )}
+            else if(score >= 45) { return(
+                <>
+                
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star"></span>
+                </>
+            )}
+            else if(score >= 30){
+                <>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star"></span>
+                <span className="fa fa-star"></span>
+                </>
+            }
+            else {
+                <>
+                Pisteesi eivät riittäneet edes yhteen tähteen. Kokeile uudestaan!
+                <span className="fa fa-star"></span>
+                <span className="fa fa-star"></span>
+                <span className="fa fa-star"></span>
+                </>
+            }
+
+        }
+        else if(gameState === 'hard') {
+            if(score >= 39) {
+                return(
+                    <>
+                    Vedit pelin läpi täysin pistein kovimmalla vaikeusasteella.
+                    Oot isoin päällikkö ikinä. Laita tästä ss Athenen e-urheilujengille ja oot automaattisesti avauksessa.
+                    <div className="pyro">
+                        <div className="before"></div>
+                        <div className="after"></div>
+                    </div>
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star checked"></span>
+                    </>
+            )}
+            else if(score >= 25) { return(
+                <>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star"></span>
+                </>
+            )}
+            else if(score >= 15){
+                <>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star"></span>
+                <span className="fa fa-star"></span>
+                </>
+            }
+            else {
+                <>
+                Pisteesi eivät riittäneet edes yhteen tähteen. Kokeile uudestaan!
+                <span className="fa fa-star"></span>
+                <span className="fa fa-star"></span>
+                <span className="fa fa-star"></span>
+                </>
+            }
+           
+
+        }else <>rikki</>  
+    }    
 
     const youLost = (
             <>
-                <h1>Nyt valitsit hölmösti {lost} ei ollut oikea päätös <br/> Yritäpä uudestaan</h1>
+                <h3>Nyt valitsit hölmösti :( </h3><i><h4>{lost}</h4></i><h3> ei ollut oikea päätös. <br/> Yritäpä uudestaan</h3>
             </>
         )
 
     const winning = (
         <>
-            <h1>Remppa valmis</h1>
+            <h2>Remppa valmis</h2>
             Pelasit pelin ja rahaa sinulla on <div className="has-text-weight-bold">{credits} kolikkoa</div> ja
             Olkkarin eheys on tällä hetkellä <div className="has-text-weight-bold">{integrity}</div>
-            {scoreText}
+            
+            
+           
         </>
     )    
-    
 
     return(
 
         <div className="centered">
 
-            {score > gameSettings.goodScore && credits >= 0 ? 
-                    <div className="pyro">
-                        <div className="before"></div>
-                        <div className="after"></div>
-                    </div>
-                : null
-            }
+           
             {integrity < -50 ? youLost
                 :
                 <>
-                    { credits < 0 ? outOfFunds : winning }
+                    { credits < 0 ? outOfFunds : 
+                    <div>
+                        {winning} 
+                        <br/>
+                        <br/>
+                        <h1>Tulos:</h1>
+                        <br/>
+                        {realScore()}
+                        <br/>
+                        <b>{gameState.toUpperCase()}</b>
+                    </div>
+                    }
                 </>
             }
-
+         
         </div>
         )
 }

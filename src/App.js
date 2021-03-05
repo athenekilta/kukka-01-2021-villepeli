@@ -17,6 +17,7 @@ opt2 = swipe left
 //game settings in this file for simplicity
 // score atm =  integ + credits
 // fixaa scoret eri vaikeuksilla
+// integ * 1.5 = credit
 const gameSettings = {
     credits:{
        easy:30,
@@ -28,8 +29,6 @@ const gameSettings = {
        medium: -5,
        hard: -10
       },
-    goodScore: 1,
-    mediumScore: -9,
 
   }
 
@@ -169,12 +168,14 @@ const App = () => {
   const [lander, setLander] = useState(true)
   const [isOver, setIsOver] = useState(false)
   const [lost, setLost] = useState('')
+  const [gameState, setGameState] = useState('')
 
 
 
  const handleClickEasy = () => {
    setCredit(gameSettings.credits.easy)
    setOIntegrity(gameSettings.olkkariIntegrity.easy)
+   setGameState('easy')
    setLander(false)
    
  } 
@@ -182,12 +183,14 @@ const App = () => {
  const handleClickMedium = () => {
    setCredit(gameSettings.credits.medium)
    setOIntegrity(gameSettings.olkkariIntegrity.medium)
+   setGameState('medium')
    setLander(false)
 } 
 
 const handleClickHard = () => {
   setCredit(gameSettings.credits.hard)
   setOIntegrity(gameSettings.olkkariIntegrity.hard)
+  setGameState('hard')
   setLander(false)
 } 
 
@@ -208,6 +211,14 @@ const handleClickHard = () => {
    } 
  }
 
+ const scoreBox = (
+   <div className="p-4">
+                  <div className="centered">
+                    <span className="textBox">Massi: {credit}</span><span className="textBox"> Eheys: {oIntegrity}</span>  
+                  </div>
+              </div>
+ )
+
 
   return(
 
@@ -215,18 +226,10 @@ const handleClickHard = () => {
       <div className="centered"><h1>Villen suuri Olkkari remppa peli</h1></div>
 
         {lander ? <Lander easyOnClick={handleClickEasy} mediumOnClick={handleClickMedium} hardOnClick={handleClickHard}/>
-        :
-          <div>
-              <div className="p-4">
-                  <div className="centered">
-                    <span className="textBox">Massi: {credit}</span><span className="textBox"> Eheys: {oIntegrity}</span>  
-                  </div>
-              </div>
-
-          
-
-
-              {isOver ? <End gameSettings={gameSettings} credits={credit} integrity={oIntegrity} lost={lost}/>
+        : 
+        <div>
+        {!isOver ? scoreBox : null}
+              {isOver ? <End gameState={gameState} gameSettings={gameSettings} credits={credit} integrity={oIntegrity} lost={lost}/>
               :
               <div className="card">     
                 {db.map((q, i) => (
@@ -241,6 +244,7 @@ const handleClickHard = () => {
              </div>
         
             }
+          
 
           </div>
     
