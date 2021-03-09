@@ -41,7 +41,7 @@ const db = [
     picPath:"pöytä",
     opt1:{ 
     desc:"Pöytä ongelma-jätteeseen",
-    cost: 90,
+    cost: 0,
     integ: 5,},
   opt2:{ 
     desc: "Ei, pidetään ihana pöytä",

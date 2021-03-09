@@ -2,7 +2,6 @@ import React from 'react'
 import pete from './pete.jfif'
 import nails from './nails-677031_640.jpg'
 import meat from "./liha.webp"
-import villeFlex from './villeFlex.jpg'
 import kupit from './kupit.jpg'
 import bilis from './bilis.jpg'
 import baskeriVille from './baskeriVille.jpg'
