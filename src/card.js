@@ -3,7 +3,18 @@ import pete from './pete.jfif'
 import nails from './nails-677031_640.jpg'
 import meat from "./liha.webp"
 import villeFlex from './villeFlex.jpg'
-//questions and answers
+import kupit from './kupit.jpg'
+import bilis from './bilis.jpg'
+import baskeriVille from './baskeriVille.jpg'
+import dippiVille from './dippiVille.jpg'
+import hyväksyntäVille from './hyväksyntäVille.jpg'
+import jopuLaulaaVille from './jopuLaulaaVille.jpg'
+import lamppuVille from './lamppuVille.jpg'
+import pöytä from './pöytä.jpg'
+import tkkVille from './tkkVille.jpg'
+import olkkari from './olkkari.jpg'
+
+
 
 const Card = ({
                 question,
@@ -14,7 +25,24 @@ const Card = ({
 
 
 
-  const kuva = picPath === 'nails' ? nails : picPath === 'meat' ? meat : villeFlex
+    var kuva = nails
+
+    if (picPath === 'nails') kuva = nails
+    else if (picPath === 'meat') kuva = meat 
+    else if(picPath === 'kupit') kuva = kupit
+    else if(picPath === 'bilis') kuva = bilis
+    else if(picPath === 'baskeriVille') kuva = baskeriVille
+    else if(picPath === 'dippiVille') kuva = dippiVille
+    else if(picPath === 'hyväksyntäVille') kuva = hyväksyntäVille
+    else if(picPath === 'jopuLaulaaVille') kuva = jopuLaulaaVille
+    else if(picPath === 'lamppuVille') kuva = lamppuVille
+    else if(picPath === 'pöytä') kuva = pöytä
+    else if(picPath === 'tkkVille') kuva = tkkVille
+    else if(picPath === 'olkkari') kuva = olkkari
+
+
+
+  
 
   return (
     <div className="columns is-centered">
@@ -36,8 +64,8 @@ const Card = ({
         </div>
         <div className="card-image">
             
-            <figure className="image is-3by1">
-            <img className="has-ratio" width="640" height="36" src={kuva} alt="Placeholder image"/>
+            <figure className="image is-3by2">
+            <img className="has-ratio" width="600" height="320" src={kuva} alt="Placeholder image"/>
             </figure> 
         </div>
         <footer className="card-footer-item">

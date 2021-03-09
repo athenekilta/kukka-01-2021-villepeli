@@ -1,4 +1,5 @@
 import React from 'react'
+import pulla from './pulla.jpg'
 
 const End = ({gameSettings, credits, integrity, lost, gameState}) => {
 
@@ -19,13 +20,18 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
             if(score >= 90) { 
                 return(
                     <>
-                    <div className="pyro">
-                        <div className="before"></div>
-                        <div className="after"></div>
-                    </div>
-                        <span className="fa fa-star checked"></span>
-                        <span className="fa fa-star checked"></span>
-                        <span className="fa fa-star checked"></span>
+                        <div className="pyro">
+                            <div className="before"></div>
+                            <div className="after"></div>
+                        </div>
+                            <span className="fa fa-star checked"></span>
+                            <span className="fa fa-star checked"></span>
+                            <span className="fa fa-star checked"></span>
+                            <br/>
+                        <b>{gameState.toUpperCase()}</b>
+                        <br/>
+                        <br/>
+                        Kokeile uudestaan eri vaikeusasteella!
                     </>
             )}
             else if(score >= 70) { return(
@@ -33,6 +39,8 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
                 <span className="fa fa-star checked"></span>
                 <span className="fa fa-star checked"></span>
                 <span className="fa fa-star"></span>
+                <br/>
+                <b>{gameState.toUpperCase()}</b>
                 </>
             )}
             else if(score >= 50){
@@ -40,6 +48,8 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
                 <span className="fa fa-star checked"></span>
                 <span className="fa fa-star"></span>
                 <span className="fa fa-star"></span>
+                <br/>
+                <b>{gameState.toUpperCase()}</b>
                 </>
             }
             else {
@@ -48,6 +58,8 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
                 <span className="fa fa-star"></span>
                 <span className="fa fa-star"></span>
                 <span className="fa fa-star"></span>
+                <br/>
+                <b>{gameState.toUpperCase()}</b>
                 </>
             }
         }
@@ -62,6 +74,8 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
                         <span className="fa fa-star checked"></span>
                         <span className="fa fa-star checked"></span>
                         <span className="fa fa-star checked"></span>
+                        <br/>
+                <b>{gameState.toUpperCase()}</b>
                     </>
             )}
             else if(score >= 45) { return(
@@ -70,6 +84,8 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
                 <span className="fa fa-star checked"></span>
                 <span className="fa fa-star checked"></span>
                 <span className="fa fa-star"></span>
+                <br/>
+                <b>{gameState.toUpperCase()}</b>
                 </>
             )}
             else if(score >= 30){
@@ -77,6 +93,8 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
                 <span className="fa fa-star checked"></span>
                 <span className="fa fa-star"></span>
                 <span className="fa fa-star"></span>
+                <br/>
+                <b>{gameState.toUpperCase()}</b>
                 </>
             }
             else {
@@ -85,6 +103,8 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
                 <span className="fa fa-star"></span>
                 <span className="fa fa-star"></span>
                 <span className="fa fa-star"></span>
+                <br/>
+                <b>{gameState.toUpperCase()}</b>
                 </>
             }
 
@@ -102,6 +122,13 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
                         <span className="fa fa-star checked"></span>
                         <span className="fa fa-star checked"></span>
                         <span className="fa fa-star checked"></span>
+                        <br/>
+                        <b>{gameState.toUpperCase()}</b>
+                        <br/>
+                        <img width="300" height="36" src={pulla} alt="Pulla kuva"/>
+                        
+                        
+
                     </>
             )}
             else if(score >= 25) { return(
@@ -109,6 +136,8 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
                 <span className="fa fa-star checked"></span>
                 <span className="fa fa-star checked"></span>
                 <span className="fa fa-star"></span>
+                <br/>
+                <b>{gameState.toUpperCase()}</b>
                 </>
             )}
             else if(score >= 15){
@@ -116,6 +145,8 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
                 <span className="fa fa-star checked"></span>
                 <span className="fa fa-star"></span>
                 <span className="fa fa-star"></span>
+                <br/>
+                <b>{gameState.toUpperCase()}</b>
                 </>
             }
             else {
@@ -124,6 +155,8 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
                 <span className="fa fa-star"></span>
                 <span className="fa fa-star"></span>
                 <span className="fa fa-star"></span>
+                <br/>
+                <b>{gameState.toUpperCase()}</b>
                 </>
             }
            
@@ -165,7 +198,7 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
                         <br/>
                         {realScore()}
                         <br/>
-                        <b>{gameState.toUpperCase()}</b>
+                        
                     </div>
                     }
                 </>
