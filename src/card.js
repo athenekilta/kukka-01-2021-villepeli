@@ -10,7 +10,7 @@ import hyväksyntäVille from './hyväksyntäVille.jpg'
 import jopuLaulaaVille from './jopuLaulaaVille.jpg'
 import lamppuVille from './lamppuVille.jpg'
 import pöytä from './pöytä.jpg'
-import tkkVille from './tkkVille.jpg'
+import villeHaamu from './villeHaamu.jpg'
 import olkkari from './olkkari.jpg'
 
 
@@ -36,26 +36,19 @@ const Card = ({
     else if(picPath === 'jopuLaulaaVille') kuva = jopuLaulaaVille
     else if(picPath === 'lamppuVille') kuva = lamppuVille
     else if(picPath === 'pöytä') kuva = pöytä
-    else if(picPath === 'tkkVille') kuva = tkkVille
+    else if(picPath === 'villeHaamu') kuva = villeHaamu
     else if(picPath === 'olkkari') kuva = olkkari
 
 
 
-  
+  const getRich = picPath === 'hyväksyntäVille' 
 
   return (
     <div className="columns is-centered">
         <div className="column is-half">
         <div className="card">
         <div className="card-content">
-            <div className="media">
-            <div className="media-left">
-                <figure className="image is-48x48">
-                <img src={pete} alt="Placeholder image"/>
-                </figure>
-            </div>
-                <p className="title is-4 has-text-black">Ville</p>
-            </div>
+           
 
             <div className="content">
             <div className="has-text-weight-bold has-text-black">{question}</div>
@@ -64,12 +57,14 @@ const Card = ({
         <div className="card-image">
             
             <figure className="image is-3by2">
-            <img className="has-ratio" width="600" height="320" src={kuva} alt="Placeholder image"/>
+                <img src={kuva} alt="kaunis kuva"/>
+
             </figure> 
+
         </div>
         <footer className="card-footer-item">
                 <i className="arrow left"></i><div className= "box">{opt2.desc}<br/><b>Hinta: </b>{Math.abs(opt2.cost)}</div> 
-                <div className="box mx-5">{opt1.desc}<br/><b>Hinta: </b>{Math.abs(opt1.cost)}</div><i className="arrow right"></i>
+                <div className="box mx-5">{opt1.desc}<br/><b>Hinta:</b> {getRich ? 'Saat' : ''} {Math.abs(opt1.cost)}</div><i className="arrow right"></i>
     </footer>
 </div>
     </div>

@@ -15,7 +15,7 @@ opt2 = swipe left
 */
 
 //game settings in this file for simplicity
-// score atm =  integ + credits
+// 
 // fixaa scoret eri vaikeuksilla
 // integ * 1.5 = credit
 const gameSettings = {
@@ -34,11 +34,11 @@ const gameSettings = {
 
 
 
-
+//this is cloud database
 const db = [
   {
     question: 'Viimeisenä rempattavana kohteena on Olkkarin oma keittiöalue. Phabupöytä on vanhanaikainen ja vie tilaa. Poistetaanko suoraan?',
-    picPath:"pöytä",
+    picPath:"villeHaamu",
     opt1:{ 
     desc:"Pöytä ongelma-jätteeseen",
     cost: 0,
@@ -49,7 +49,7 @@ const db = [
     integ: -100}
   },
   {
-    question: 'Ärsyttää, kun oma kahvikuppi pitäisi aina muistaa tiskata käytön jälkeen. Usein jätänkin kuppini lojumaan Olkkarilla sekalaisiin nurkkauksiin. Pitäisikö Olkkarille hankkia tiskikone?',
+    question: 'Ärsyttää, kun oma kahvikuppi pitäisi aina muistaa tiskata käytön jälkeen. Usein jätänkin kuppini lojumaan Olkkarilla sekalaisiin nurkkauksiin. Hankitaanko Olkkarille tiskikone?',
     picPath:"kupit",
     opt1:{ 
       desc:"Kyllä, elämä on liian lyhyt tiskeihin",
