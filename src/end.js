@@ -1,5 +1,6 @@
 import React from 'react'
 import pulla from './pulla.jpg'
+import ReloadButton from './ReloadButton'
 
 const End = ({gameSettings, credits, integrity, lost, gameState}) => {
 
@@ -204,6 +205,7 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
                 </>
             }
          
+            <ReloadButton />
         </div>
         )
 }
