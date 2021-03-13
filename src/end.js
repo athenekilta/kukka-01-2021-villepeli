@@ -1,5 +1,5 @@
 import React from 'react'
-import pulla from './pulla.jpg'
+import pulla from './pics/pulla.jpg'
 import ReloadButton from './ReloadButton'
 
 const End = ({gameSettings, credits, integrity, lost, gameState}) => {

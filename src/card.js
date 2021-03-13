@@ -1,17 +1,16 @@
 import React from 'react'
-import pete from './pete.jfif'
-import nails from './nails-677031_640.jpg'
-import meat from "./liha.webp"
-import kupit from './kupit.jpg'
-import bilis from './bilis.jpg'
-import baskeriVille from './baskeriVille.jpg'
-import dippiVille from './dippiVille.jpg'
-import hyväksyntäVille from './hyväksyntäVille.jpg'
-import jopuLaulaaVille from './jopuLaulaaVille.jpg'
-import lamppuVille from './lamppuVille.jpg'
-import pöytä from './pöytä.jpg'
-import villeHaamu from './villeHaamu.jpg'
-import olkkari from './olkkari.jpg'
+import nails from './pics/nails-677031_640.jpg'
+import meat from "./pics/liha.png"
+import kupit from './pics/kupit.jpg'
+import bilis from './pics/bilis.jpg'
+import baskeriVille from './pics/baskeriVille.jpg'
+import dippiVille from './pics/dippiVille.jpg'
+import hyväksyntäVille from './pics/hyväksyntäVille.jpg'
+import jopuLaulaaVille from './pics/jopuLaulaaVille.jpg'
+import lamppuVille from './pics/lamppuVille.jpg'
+import pöytä from './pics/pöytä.jpg'
+import villeHaamu from './pics/villeHaamu.jpg'
+import olkkari from './pics/olkkari.jpg'
 
 
 
