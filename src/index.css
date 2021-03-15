@@ -5,6 +5,10 @@ body {
     height: 150vh; 
 }
 
+.star{
+  font-size: 60px;
+  color: gold;
+}
 
 .textBox {  
   width: 130px;
