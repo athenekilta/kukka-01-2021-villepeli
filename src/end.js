@@ -25,9 +25,9 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
                             <div className="before"></div>
                             <div className="after"></div>
                         </div>
-                            <span className="fa fa-star checked"></span>
-                            <span className="fa fa-star checked"></span>
-                            <span className="fa fa-star checked"></span>
+                            <span className="star">★</span>
+                            <span className="star">★</span>
+                            <span className="star">★</span>
                             <br/>
                         <b>{gameState.toUpperCase()}</b>
                         <br/>
@@ -37,18 +37,19 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
             )}
             else if(score >= 70) { return(
                 <>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-                <br/>
-                <b>{gameState.toUpperCase()}</b>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">☆</span>
+                    <br/>
+                    <b>{gameState.toUpperCase()}</b>
                 </>
             )}
             else if(score >= 50){
                 <>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
+                <br/>
+                <span className="star">★</span>
+                <span className="star">☆</span>
+                <span className="star">☆</span>
                 <br/>
                 <b>{gameState.toUpperCase()}</b>
                 </>
@@ -56,9 +57,9 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
             else {
                 <>
                 Pisteesi eivät riittäneet edes yhteen tähteen. Kokeile uudestaan!
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
+                <span className="star">☆</span>
+                <span className="star">☆</span>
+                <span className="star">☆</span>
                 <br/>
                 <b>{gameState.toUpperCase()}</b>
                 </>
@@ -72,9 +73,9 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
                         <div className="before"></div>
                         <div className="after"></div>
                     </div>
-                        <span className="fa fa-star checked"></span>
-                        <span className="fa fa-star checked"></span>
-                        <span className="fa fa-star checked"></span>
+                            <span className="star">★</span>
+                            <span className="star">★</span>
+                            <span className="star">★</span>
                         <br/>
                 <b>{gameState.toUpperCase()}</b>
                     </>
@@ -82,18 +83,18 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
             else if(score >= 45) { return(
                 <>
                 
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
+                <span className="star">★</span>
+                <span className="star">★</span>
+                <span className="star">☆</span>
                 <br/>
                 <b>{gameState.toUpperCase()}</b>
                 </>
             )}
             else if(score >= 30){
                 <>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
+                <span className="star">★</span>
+                <span className="star">☆</span>
+                <span className="star">☆</span>
                 <br/>
                 <b>{gameState.toUpperCase()}</b>
                 </>
@@ -101,9 +102,9 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
             else {
                 <>
                 Pisteesi eivät riittäneet edes yhteen tähteen. Kokeile uudestaan!
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
+                <span className="star">☆</span>
+                <span className="star">☆</span>
+                <span className="star">☆</span>
                 <br/>
                 <b>{gameState.toUpperCase()}</b>
                 </>
@@ -120,9 +121,9 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
                         <div className="before"></div>
                         <div className="after"></div>
                     </div>
-                        <span className="fa fa-star checked"></span>
-                        <span className="fa fa-star checked"></span>
-                        <span className="fa fa-star checked"></span>
+                        <span className="star">★</span>
+                        <span className="star">★</span>
+                        <span className="star">★</span>
                         <br/>
                         <b>{gameState.toUpperCase()}</b>
                         <br/>
@@ -134,18 +135,18 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
             )}
             else if(score >= 25) { return(
                 <>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
+                <span className="star">★</span>
+                <span className="star">★</span>
+                <span className="star">☆</span>
                 <br/>
                 <b>{gameState.toUpperCase()}</b>
                 </>
             )}
             else if(score >= 15){
                 <>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
+                <span className="star">★</span>
+                <span className="star">☆</span>
+                <span className="star">☆</span>
                 <br/>
                 <b>{gameState.toUpperCase()}</b>
                 </>
@@ -153,9 +154,9 @@ const End = ({gameSettings, credits, integrity, lost, gameState}) => {
             else {
                 <>
                 Pisteesi eivät riittäneet edes yhteen tähteen. Kokeile uudestaan!
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
+                <span className="star">☆</span>
+                <span className="star">☆</span>
+                <span className="star">☆</span>
                 <br/>
                 <b>{gameState.toUpperCase()}</b>
                 </>
